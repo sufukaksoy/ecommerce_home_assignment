@@ -216,7 +216,7 @@ Not: `pipeline_duckdb.py` içinde `--step transform`, `transform_dims -> transfo
 - DuckDB, local-first analitik kurulum kolaylığı için seçildi.
 - SQL-first dönüşüm yaklaşımı iş kurallarını şeffaf ve gözden geçirilebilir tutar.
 - Fact/dimension model BI sorgularını hızlandırır ve sadeleştirir.
-- Airflow, otomasyon bonusu kapsamında eklendi.
+- Airflow, otomasyon kapsamında eklendi.
 
 ## Veri Kalitesi Stratejisi
 Uygulanan kontroller:
