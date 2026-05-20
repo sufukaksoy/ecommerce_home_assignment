@@ -1,0 +1,35 @@
+# macOS
+.DS_Store
+**/.DS_Store
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Local databases and temporary data
+*.duckdb
+*.duckdb.wal
+*.db
+*.sqlite
+
+# Large raw datasets (keep local, do not version)
+data/raw/*.csv
+
+# Airflow/local runtime artifacts
+logs/
+airflow-webserver.pid
+airflow-scheduler.pid
+
+# IDE/editor
+.vscode/
+.idea/
