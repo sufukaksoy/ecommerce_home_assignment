@@ -148,7 +148,22 @@ flowchart TD
 cd ecommerce_pipeline
 ```
 
-#### 2. Airflow stack'i ayağa kaldır
+#### 2. Veriyi `data/raw` klasörüne yerleştir
+Bu repo boyut limiti nedeniyle raw CSV dosyalarını içermez. Aşağıdaki dosyaları `data/raw/` altına kopyala:
+- `users.csv`
+- `orders.csv`
+- `order_items.csv`
+- `products.csv`
+- `distribution_centers.csv`
+- `inventory_items.csv`
+- `events.csv`
+
+Doğrulama:
+```bash
+ls data/raw
+```
+
+#### 3. Airflow stack'i ayağa kaldır
 ```bash
 docker compose down --remove-orphans
 docker compose up --build -d
@@ -157,11 +172,11 @@ Airflow UI:
 - `http://localhost:8080`
 - kullanıcı/şifre: `admin/admin`
 
-#### 3. DAG'i çalıştır
+#### 4. DAG'i çalıştır
 - Airflow UI'da `ecommerce_elt_pipeline` DAG'ini `Trigger DAG` ile tetikle.
 - Task akışı: `validate_inputs -> load_users -> ... -> run_dq_checks`
 
-#### 4. (Opsiyonel) DuckDB UI aç (tercih edilen yöntem: local Python)
+#### 5. (Opsiyonel) DuckDB UI aç (tercih edilen yöntem: local Python)
 ```bash
 docker compose stop duckdb-ui || true
 
@@ -183,7 +198,7 @@ Alternatif container yöntemi:
 docker compose --profile duckui up --build duckdb-ui
 ```
 
-#### 5. (Opsiyonel) Tek seferlik lokal pipeline çalıştırma
+#### 6. (Opsiyonel) Tek seferlik lokal pipeline çalıştırma
 Airflow yerine doğrudan ELT çalıştırmak için:
 ```bash
 docker compose --profile tools run --rm duckdb-build
